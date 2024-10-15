@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บไซต์หมุนวงล้อสุ่มรางวัล</title>
+    <title>หมุนวงล้อสมาชิกVIP</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Animate.css for animations -->
@@ -29,6 +29,8 @@
                 <option value="VIP5">VIP5</option>
                 <option value="VIP6">VIP6</option>
             </select>
+            <!-- Preview Button -->
+            <button id="preview-button" class="btn preview-btn">ดูตัวอย่างรางวัล <i class="fas fa-eye"></i></button>
         </div>
 
         <!-- Display Selected Reward -->
@@ -59,7 +61,7 @@
     <div id="password-modal" class="modal animate__animated">
         <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h2>กรอกรหัสผ่าน</h2>
+            <h2>กรอกรหัสรับโบนัส</h2>
             <input type="password" id="password-input" placeholder="รหัสผ่าน" />
             <button id="submit-password" class="btn">ยืนยัน</button>
             <p id="password-error" class="error-message"></p>
@@ -74,6 +76,17 @@
             <input type="password" id="admin-password-input" placeholder="รหัสผ่านผู้ดูแล" />
             <button id="submit-admin-password" class="btn">ยืนยัน</button>
             <p id="admin-password-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Reward Preview Modal -->
+    <div id="preview-modal" class="modal animate__animated">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>ตัวอย่างรางวัลของ <span id="preview-vip-level"></span></h2>
+            <div id="preview-rewards" class="preview-rewards">
+                <!-- Rewards จะถูกเพิ่มเข้าที่นี่ด้วย JavaScript -->
+            </div>
         </div>
     </div>
 
