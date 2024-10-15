@@ -1,5 +1,4 @@
-/* styles.css */
-
+/* Base Styles */
 body {
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(135deg, #f06, #f79);
@@ -296,31 +295,89 @@ canvas {
 #preview-modal .modal-content {
     max-height: 80vh;
     overflow-y: auto;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    color: #333;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease-in-out;
 }
 
+/* Enhance Reward Items */
 .preview-rewards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 20px;
 }
 
 .preview-rewards .reward-item {
-    background: rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 20px;
     border-radius: 10px;
-    width: 200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     text-align: center;
-    color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.preview-rewards .reward-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .preview-rewards .reward-item img {
     max-width: 100px;
     height: auto;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .preview-rewards .reward-item p {
-    font-size: 1.2em;
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Modal Heading */
+#preview-modal .modal-content h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Close Button Enhancements */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Responsive Adjustments for Preview Modal */
+@media (max-width: 600px) {
+    .preview-rewards {
+        grid-template-columns: 1fr;
+    }
+
+    .preview-rewards .reward-item img {
+        max-width: 80px;
+    }
+
+    #preview-modal .modal-content {
+        padding: 20px;
+    }
+
+    #preview-modal .modal-content h2 {
+        font-size: 1.5em;
+    }
 }
