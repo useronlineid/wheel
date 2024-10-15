@@ -1,0 +1,269 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f06, #f79);
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.vip-selection {
+    margin-bottom: 20px;
+}
+
+.vip-selection label {
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.vip-dropdown {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Disabled option style */
+.vip-dropdown option:disabled {
+    color: #ccc;
+}
+
+.wheel-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Updated Wheel Styles */
+canvas {
+    border: 10px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5), inset 0 0 50px rgba(255, 255, 255, 0.2);
+    background: radial-gradient(circle at center, #ff8c00, #ff0080, #6a00ff);
+    transition: transform 0.6s ease-out;
+}
+
+#spin-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #00f260, #0575e6);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.4s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#spin-button:hover {
+    background: linear-gradient(135deg, #0575e6, #00f260);
+    transform: scale(1.1);
+}
+
+#spin-button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Reset Button Styles */
+#reset-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ff4b2b, #ff416c);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.4s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+#reset-button:hover {
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);
+    transform: scale(1.1);
+}
+
+#reset-button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    background-color: rgba(0,0,0,0.7); 
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px;
+    border: none;
+    border-radius: 20px;
+    width: 80%; 
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    color: #333;
+    animation: slideIn 0.6s forwards;
+}
+
+/* Close Button */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.modal-content p {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.animated-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-20px);}
+    60% {transform: translateY(-10px);}
+}
+
+/* Input และปุ่มภายใน modals */
+.modal-content input {
+    width: 80%;
+    padding: 10px;
+    margin: 20px 0;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.modal-content #submit-password,
+.modal-content #submit-admin-password {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #00f260, #0575e6);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.modal-content #submit-password:hover,
+.modal-content #submit-admin-password:hover {
+    background: linear-gradient(135deg, #0575e6, #00f260);
+}
+
+.error-message {
+    color: red;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+/* Selected Reward Styles */
+.selected-reward {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.selected-reward h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.selected-reward p {
+    font-size: 1.2em;
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    canvas {
+        width: 300px;
+        height: 300px;
+    }
+
+    #spin-button,
+    #reset-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .modal-content {
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-content p {
+        font-size: 1.2em;
+    }
+
+    .vip-selection label, .vip-dropdown {
+        font-size: 1em;
+    }
+
+    .selected-reward h2,
+    .selected-reward p {
+        font-size: 1em;
+    }
+}
