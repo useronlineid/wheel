@@ -1,5 +1,3 @@
-// script.js
-
 const canvas = document.getElementById('wheel');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spin-button');
@@ -124,7 +122,7 @@ const VIP_LEVELS = {
         segments: [
             { type: 'text', content: 'โบนัส 1699' },
             { type: 'text', content: 'โบนัส 2299' },
-            { type: 'image', content: '../assets/image/icon/2.png', description: 'iphone 16 pro' }, // Added description
+            { type: 'image', content: '../assets/image/icon/2.png', description: 'iPhone 16 Pro' }, // Added description
             { type: 'text', content: 'โบนัส 1699' },
             { type: 'text', content: 'โบนัส 1699' },
             { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 1สลึง (มูลค่า10,000บาท)' }, // Added description
@@ -470,14 +468,18 @@ previewButton.addEventListener('click', () => {
         if (segment.type === 'text') {
             rewardItem.innerHTML = `<p>${segment.content}</p>`;
         } else if (segment.type === 'image') {
-            const img = new Image();
+            const img = document.createElement('img');
             img.src = segment.content;
             img.alt = segment.description;
             img.onerror = () => {
                 img.alt = 'ภาพไม่สามารถแสดงได้';
-                img.src = ''; // Remove src to prevent broken image icon
+                img.src = 'https://via.placeholder.com/100?text=No+Image'; // แสดง placeholder แทนภาพที่ไม่โหลดได้
             };
-            rewardItem.innerHTML = `<img src="${segment.content}" alt="${segment.description}"><p>${segment.description}</p>`;
+            const description = document.createElement('p');
+            description.textContent = segment.description;
+
+            rewardItem.appendChild(img);
+            rewardItem.appendChild(description);
         }
 
         previewRewardsContainer.appendChild(rewardItem);
