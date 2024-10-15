@@ -40,7 +40,7 @@ const previewVipLevelText = document.getElementById('preview-vip-level');
 // Define the VIP levels and their passwords, segments, colors, and spin status
 const VIP_LEVELS = {
     VIP1: {
-        password: '123',
+        password: '120123',
         segments: [
             { type: 'text', content: 'โบนัส 19' },
             { type: 'text', content: 'โบนัส 29' },
@@ -56,7 +56,7 @@ const VIP_LEVELS = {
         selectedSegment: null
     },
     VIP2: {
-        password: '456',
+        password: '862365',
         segments: [
             { type: 'text', content: 'โบนัส 48' },
             { type: 'text', content: 'โบนัส 58' },
@@ -72,7 +72,7 @@ const VIP_LEVELS = {
         selectedSegment: null
     },
     VIP3: {
-        password: '789',
+        password: '983659',
         segments: [
             { type: 'text', content: 'โบนัส 109' },
             { type: 'text', content: 'โบนัส 209' },
@@ -88,7 +88,7 @@ const VIP_LEVELS = {
         selectedSegment: null
     },
     VIP4: {
-        password: '012',
+        password: '139823',
         segments: [
             { type: 'text', content: 'โบนัส 499' },
             { type: 'text', content: 'โบนัส 699' },
@@ -104,7 +104,7 @@ const VIP_LEVELS = {
         selectedSegment: null
     },
     VIP5: {
-        password: '345',
+        password: '863188',
         segments: [
             { type: 'text', content: 'โบนัส 958' },
             { type: 'text', content: 'โบนัส 1558' },
@@ -120,7 +120,7 @@ const VIP_LEVELS = {
         selectedSegment: null
     },
     VIP6: {
-        password: '678',
+        password: '226980',
         segments: [
             { type: 'text', content: 'โบนัส 1699' },
             { type: 'text', content: 'โบนัส 2299' },
@@ -537,7 +537,7 @@ submitPasswordButton.addEventListener('click', () => {
 // อีเวนต์ listener สำหรับ Admin Submit Password
 submitAdminPasswordButton.addEventListener('click', () => {
     const enteredAdminPassword = adminPasswordInput.value.trim();
-    const ADMIN_PASSWORD = '7889'; // รหัสผ่านสำหรับผู้ดูแล
+    const ADMIN_PASSWORD = 'adminpro'; // รหัสผ่านสำหรับผู้ดูแล
 
     if(enteredAdminPassword === ADMIN_PASSWORD) {
         // รีเซ็ตสถานะการหมุนทั้งหมด
