@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เว็บไซต์หมุนวงล้อสุ่มรางวัล</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>หมุนวงล้อเพื่อรับรางวัล</h1>
+        
+        <!-- VIP Selection -->
+        <div class="vip-selection">
+            <label for="vip-level">เลือกระดับ VIP:</label>
+            <select id="vip-level" class="vip-dropdown">
+                <option value="" disabled selected>-- เลือก VIP --</option>
+                <option value="VIP1">VIP1</option>
+                <option value="VIP2">VIP2</option>
+                <option value="VIP3">VIP3</option>
+                <option value="VIP4">VIP4</option>
+                <option value="VIP5">VIP5</option>
+                <option value="VIP6">VIP6</option>
+            </select>
+        </div>
+
+        <!-- Display Selected Reward -->
+        <div class="selected-reward">
+            <h2>รางวัลที่คุณได้รับ:</h2>
+            <p id="selected-reward-text">ยังไม่ได้หมุนวงล้อ</p>
+        </div>
+
+        <div class="wheel-container">
+            <canvas id="wheel" width="500" height="500"></canvas>
+            <button id="spin-button" class="btn">หมุนวงล้อ <i class="fas fa-sync-alt"></i></button>
+            <!-- Reset Button for Admin -->
+            <button id="reset-button" class="btn admin-btn">รีเซ็ตการหมุน <i class="fas fa-redo"></i></button>
+        </div>
+    </div>
+
+    <!-- Reward Modal -->
+    <div id="reward-modal" class="modal animate__animated">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>ยินดีด้วย!</h2>
+            <p id="reward-text"></p>
+            <i class="fas fa-gift fa-3x animated-bounce"></i>
+        </div>
+    </div>
+
+    <!-- Password Modal for User -->
+    <div id="password-modal" class="modal animate__animated">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>กรอกรหัสผ่าน</h2>
+            <input type="password" id="password-input" placeholder="รหัสผ่าน" />
+            <button id="submit-password" class="btn">ยืนยัน</button>
+            <p id="password-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Admin Reset Password Modal -->
+    <div id="admin-reset-modal" class="modal animate__animated">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>กรอกรหัสผ่านผู้ดูแล</h2>
+            <input type="password" id="admin-password-input" placeholder="รหัสผ่านผู้ดูแล" />
+            <button id="submit-admin-password" class="btn">ยืนยัน</button>
+            <p id="admin-password-error" class="error-message"></p>
+        </div>
+    </div>
+
+    <!-- Sound Effect -->
+    <audio id="spin-sound" src="https://www.soundjay.com/buttons/sounds/button-3.mp3" preload="auto"></audio>
+    <audio id="win-sound" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.mp3" preload="auto"></audio>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
