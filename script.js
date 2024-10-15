@@ -1,3 +1,5 @@
+// script.js
+
 const canvas = document.getElementById('wheel');
 const ctx = canvas.getContext('2d');
 const spinButton = document.getElementById('spin-button');
@@ -28,19 +30,26 @@ const submitAdminPasswordButton = document.getElementById('submit-admin-password
 const adminPasswordInput = document.getElementById('admin-password-input');
 const adminPasswordError = document.getElementById('admin-password-error');
 
+// Preview Modal Elements
+const previewButton = document.getElementById('preview-button');
+const previewModal = document.getElementById('preview-modal');
+const previewCloseButton = previewModal.querySelector('.close-button');
+const previewRewardsContainer = document.getElementById('preview-rewards');
+const previewVipLevelText = document.getElementById('preview-vip-level');
+
 // Define the VIP levels and their passwords, segments, colors, and spin status
 const VIP_LEVELS = {
     VIP1: {
         password: '123',
         segments: [
-            { type: 'text', content: 'โบนัส 100' },
-            { type: 'text', content: 'โบนัส 150' },
-            { type: 'text', content: 'โบนัส 200' },
-            { type: 'text', content: 'โบนัส 250' },
-            { type: 'text', content: 'โบนัส 300' },
-            { type: 'text', content: 'โบนัส 350' },
-            { type: 'text', content: 'โบนัส 400' },
-            { type: 'text', content: 'โบนัส 450' }
+            { type: 'text', content: 'โบนัส 19' },
+            { type: 'text', content: 'โบนัส 29' },
+            { type: 'text', content: 'โบนัส 19' },
+            { type: 'text', content: 'โบนัส 29' },
+            { type: 'text', content: 'โบนัส 19' },
+            { type: 'text', content: 'โบนัส 29' },
+            { type: 'text', content: 'โบนัส 19' },
+            { type: 'text', content: 'โบนัส 39' }
         ],
         colors: ['#FF5733', '#33FF57', '#3357FF', '#F333FF', '#FF33A8', '#33FFF6', '#FF8633', '#8D33FF'],
         hasSpun: false,
@@ -83,10 +92,10 @@ const VIP_LEVELS = {
         segments: [
             { type: 'text', content: 'โบนัส 6000' },
             { type: 'text', content: 'โบนัส 7000' },
-            { type: 'image', content: '../assets/image/icon/1.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 1 บาท' }, // Added description
             { type: 'text', content: 'โบนัส 9000' },
             { type: 'text', content: 'โบนัส 10000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 2 บาท' }, // Added description
             { type: 'text', content: 'โบนัส 12000' },
             { type: 'text', content: 'โบนัส 13000' }
         ],
@@ -99,10 +108,10 @@ const VIP_LEVELS = {
         segments: [
             { type: 'text', content: 'โบนัส 15000' },
             { type: 'text', content: 'โบนัส 18000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'โบนัสพิเศษ' }, // Added description
             { type: 'text', content: 'โบนัส 22000' },
             { type: 'text', content: 'โบนัส 25000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'โบนัสพิเศษเพิ่มเติม' }, // Added description
             { type: 'text', content: 'โบนัส 30000' },
             { type: 'text', content: 'โบนัส 35000' }
         ],
@@ -110,16 +119,15 @@ const VIP_LEVELS = {
         hasSpun: false,
         selectedSegment: null
     },
-
     VIP6: {
         password: '678',
         segments: [
             { type: 'text', content: 'โบนัส 50000' },
             { type: 'text', content: 'โบนัส 60000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'รางวัลสุดพิเศษ' }, // Added description
             { type: 'text', content: 'โบนัส 80000' },
             { type: 'text', content: 'โบนัส 90000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png' }, // รูปภาพจากโฟลเดอร์
+            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'รางวัลสุดพิเศษเพิ่มเติม' }, // Added description
             { type: 'text', content: 'โบนัส 120000' },
             { type: 'text', content: 'โบนัส 150000' }
         ],
@@ -289,9 +297,9 @@ function stopRotateWheel() {
     setWheel(currentVIP);
 
     if (selectedSegment.type === 'text') {
-        rewardText.textContent = `คุณได้รับ ${selectedSegment.content}!`;
+        rewardText.textContent = `คุณได้รับ ${selectedSegment.content}`;
     } else if (selectedSegment.type === 'image') {
-        rewardText.textContent = `คุณได้รับรางวัลรูปภาพ!`;
+        rewardText.textContent = `คุณได้รับ ${selectedSegment.description}`; // แสดงคำอธิบายแทนรูปภาพ
     }
 
     rewardModal.classList.add('animate__fadeInDown');
@@ -420,6 +428,71 @@ adminResetCloseButton.addEventListener('click', () => {
     closeModal(adminResetModal);
 });
 
+// อีเวนต์ listener สำหรับ Preview Button
+previewButton.addEventListener('click', () => {
+    const selectedVIP = vipDropdown.value;
+    if (!selectedVIP) {
+        alert('กรุณาเลือกระดับ VIP เพื่อดูตัวอย่างรางวัล');
+        return;
+    }
+
+    const vip = VIP_LEVELS[selectedVIP];
+    if (!vip) {
+        alert('ระดับ VIP ที่เลือกไม่มีข้อมูล');
+        return;
+    }
+
+    // Set VIP level text
+    previewVipLevelText.textContent = selectedVIP;
+
+    // Clear previous rewards
+    previewRewardsContainer.innerHTML = '';
+
+    // แยกรางวัลเป็นข้อความและรูปภาพ
+    const textSegments = vip.segments.filter(seg => seg.type === 'text');
+    const imageSegments = vip.segments.filter(seg => seg.type === 'image');
+
+    // จัดเรียงรางวัลข้อความจากน้อยไปหามาก
+    textSegments.sort((a, b) => {
+        const numA = parseInt(a.content.replace(/\D/g, ''), 10);
+        const numB = parseInt(b.content.replace(/\D/g, ''), 10);
+        return numA - numB;
+    });
+
+    // รวมรางวัลข้อความที่จัดเรียงแล้วกับรางวัลรูปภาพ
+    const sortedSegments = [...textSegments, ...imageSegments];
+
+    // Populate rewards
+    sortedSegments.forEach(segment => {
+        const rewardItem = document.createElement('div');
+        rewardItem.classList.add('reward-item');
+
+        if (segment.type === 'text') {
+            rewardItem.innerHTML = `<p>${segment.content}</p>`;
+        } else if (segment.type === 'image') {
+            const img = new Image();
+            img.src = segment.content;
+            img.alt = segment.description;
+            img.onerror = () => {
+                img.alt = 'ภาพไม่สามารถแสดงได้';
+                img.src = ''; // Remove src to prevent broken image icon
+            };
+            rewardItem.innerHTML = `<img src="${segment.content}" alt="${segment.description}"><p>${segment.description}</p>`;
+        }
+
+        previewRewardsContainer.appendChild(rewardItem);
+    });
+
+    // Show preview modal
+    previewModal.classList.add('animate__fadeInDown');
+    previewModal.style.display = "flex";
+});
+
+// อีเวนต์ listener สำหรับ Preview Modal Close Button
+previewCloseButton.addEventListener('click', () => {
+    closeModal(previewModal);
+});
+
 // อีเวนต์ listener สำหรับ Window Click เพื่อปิดโมดัลเมื่อคลิกนอกโมดัล
 window.addEventListener('click', (event) => {
     if(event.target == rewardModal) {
@@ -430,6 +503,9 @@ window.addEventListener('click', (event) => {
     }
     if(event.target == adminResetModal) {
         closeModal(adminResetModal);
+    }
+    if(event.target == previewModal) {
+        closeModal(previewModal);
     }
 });
 
@@ -507,6 +583,9 @@ function closeModal(modal) {
         adminPasswordInput.value = '';
         adminPasswordError.textContent = '';
     }
+    if (modal === previewModal) {
+        // ไม่มีการเคลียร์ข้อมูลเพิ่มเติมสำหรับ previewModal
+    }
 }
 
 // อัพเดตวงล้อและแสดงรางวัลที่เลือกเมื่อเลือก VIP
@@ -528,7 +607,7 @@ function displaySelectedReward() {
         if(segment.type === 'text') {
             selectedRewardText.textContent = `คุณได้รับ ${segment.content}`;
         } else if(segment.type === 'image') {
-            selectedRewardText.innerHTML = `คุณได้รับรางวัลรูปภาพ: <img src="${segment.content}" alt="รางวัลรูปภาพ" style="width:50px;height:50px;">`;
+            selectedRewardText.textContent = `คุณได้รับ ${segment.description}`; // แสดงคำอธิบายแทนรูปภาพ
         }
     } else {
         selectedRewardText.textContent = 'ยังไม่ได้หมุนวงล้อ';
