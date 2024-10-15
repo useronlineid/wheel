@@ -58,14 +58,14 @@ const VIP_LEVELS = {
     VIP2: {
         password: '456',
         segments: [
-            { type: 'text', content: 'โบนัส 500' },
-            { type: 'text', content: 'โบนัส 600' },
-            { type: 'text', content: 'โบนัส 700' },
-            { type: 'text', content: 'โบนัส 800' },
-            { type: 'text', content: 'โบนัส 900' },
-            { type: 'text', content: 'โบนัส 1000' },
-            { type: 'text', content: 'โบนัส 1100' },
-            { type: 'text', content: 'โบนัส 1200' }
+            { type: 'text', content: 'โบนัส 48' },
+            { type: 'text', content: 'โบนัส 58' },
+            { type: 'text', content: 'โบนัส 48' },
+            { type: 'text', content: 'โบนัส 68' },
+            { type: 'text', content: 'โบนัส 48' },
+            { type: 'text', content: 'โบนัส 58' },
+            { type: 'text', content: 'โบนัส 48' },
+            { type: 'text', content: 'โบนัส 58' }
         ],
         colors: ['#C70039', '#900C3F', '#581845', '#FFC300', '#DAF7A6', '#FF5733', '#33FF57', '#3357FF'],
         hasSpun: false,
@@ -74,14 +74,14 @@ const VIP_LEVELS = {
     VIP3: {
         password: '789',
         segments: [
-            { type: 'text', content: 'โบนัส 1500' },
-            { type: 'text', content: 'โบนัส 2000' },
-            { type: 'text', content: 'โบนัส 2500' },
-            { type: 'text', content: 'โบนัส 3000' },
-            { type: 'text', content: 'โบนัส 3500' },
-            { type: 'text', content: 'โบนัส 4000' },
-            { type: 'text', content: 'โบนัส 4500' },
-            { type: 'text', content: 'โบนัส 5000' }
+            { type: 'text', content: 'โบนัส 109' },
+            { type: 'text', content: 'โบนัส 209' },
+            { type: 'text', content: 'โบนัส 109' },
+            { type: 'text', content: 'โบนัส 309' },
+            { type: 'text', content: 'โบนัส 109' },
+            { type: 'text', content: 'โบนัส 159' },
+            { type: 'text', content: 'โบนัส 109' },
+            { type: 'text', content: 'โบนัส 159' }
         ],
         colors: ['#FF69B4', '#BA55D3', '#9400D3', '#4B0082', '#8A2BE2', '#9932CC', '#FF1493', '#C71585'],
         hasSpun: false,
@@ -90,14 +90,14 @@ const VIP_LEVELS = {
     VIP4: {
         password: '012',
         segments: [
-            { type: 'text', content: 'โบนัส 6000' },
-            { type: 'text', content: 'โบนัส 7000' },
-            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 1 บาท' }, // Added description
-            { type: 'text', content: 'โบนัส 9000' },
-            { type: 'text', content: 'โบนัส 10000' },
-            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 2 บาท' }, // Added description
-            { type: 'text', content: 'โบนัส 12000' },
-            { type: 'text', content: 'โบนัส 13000' }
+            { type: 'text', content: 'โบนัส 499' },
+            { type: 'text', content: 'โบนัส 699' },
+            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทองครึ่งสลึง (มูลค่า5,000บาท)' }, // Added description
+            { type: 'text', content: 'โบนัส 499' },
+            { type: 'text', content: 'โบนัส 699' },
+            { type: 'text', content: 'โบนัส 899' },
+            { type: 'text', content: 'โบนัส 499' },
+            { type: 'text', content: 'โบนัส 499' }
         ],
         colors: ['#FF8C00', '#FF4500', '#DA70D6', '#32CD32', '#1E90FF', '#FFD700', '#00CED1', '#FF1493'],
         hasSpun: false,
@@ -106,14 +106,14 @@ const VIP_LEVELS = {
     VIP5: {
         password: '345',
         segments: [
-            { type: 'text', content: 'โบนัส 15000' },
-            { type: 'text', content: 'โบนัส 18000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'โบนัสพิเศษ' }, // Added description
-            { type: 'text', content: 'โบนัส 22000' },
-            { type: 'text', content: 'โบนัส 25000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'โบนัสพิเศษเพิ่มเติม' }, // Added description
-            { type: 'text', content: 'โบนัส 30000' },
-            { type: 'text', content: 'โบนัส 35000' }
+            { type: 'text', content: 'โบนัส 958' },
+            { type: 'text', content: 'โบนัส 1558' },
+            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 1สลึง (มูลค่า10,000บาท)' }, // Added description
+            { type: 'text', content: 'โบนัส 958' },
+            { type: 'text', content: 'โบนัส 1258' },
+            { type: 'text', content: 'โบนัส 958' },
+            { type: 'text', content: 'โบนัส 958' },
+            { type: 'text', content: 'โบนัส 1258' }
         ],
         colors: ['#800000', '#808000', '#008000', '#800080', '#000080', '#FFA500', '#A52A2A', '#8B0000'],
         hasSpun: false,
@@ -122,14 +122,14 @@ const VIP_LEVELS = {
     VIP6: {
         password: '678',
         segments: [
-            { type: 'text', content: 'โบนัส 50000' },
-            { type: 'text', content: 'โบนัส 60000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'รางวัลสุดพิเศษ' }, // Added description
-            { type: 'text', content: 'โบนัส 80000' },
-            { type: 'text', content: 'โบนัส 90000' },
-            { type: 'image', content: 'assets/image/logo/A-KBANK.png', description: 'รางวัลสุดพิเศษเพิ่มเติม' }, // Added description
-            { type: 'text', content: 'โบนัส 120000' },
-            { type: 'text', content: 'โบนัส 150000' }
+            { type: 'text', content: 'โบนัส 1699' },
+            { type: 'text', content: 'โบนัส 2299' },
+            { type: 'image', content: '../assets/image/icon/2.png', description: 'iphone 16 pro' }, // Added description
+            { type: 'text', content: 'โบนัส 1699' },
+            { type: 'text', content: 'โบนัส 1699' },
+            { type: 'image', content: '../assets/image/icon/1.png', description: 'ทอง 1สลึง (มูลค่า10,000บาท)' }, // Added description
+            { type: 'text', content: 'โบนัส 1999' },
+            { type: 'text', content: 'โบนัส 1699' }
         ],
         colors: ['#4B0082', '#2E8B57', '#FF6347', '#4682B4', '#D2691E', '#9ACD32', '#FF1493', '#00BFFF'],
         hasSpun: false,
