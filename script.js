@@ -6,6 +6,7 @@ const rewardModal = document.getElementById('reward-modal');
 const rewardCloseButton = rewardModal.querySelector('.close-button');
 const rewardText = document.getElementById('reward-text');
 const spinSound = document.getElementById('spin-sound');
+spinSound.loop = true; // ให้เสียงหมุนเล่นแบบลูป
 const winSound = document.getElementById('win-sound');
 
 // VIP Selection Elements
