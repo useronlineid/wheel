@@ -327,12 +327,7 @@ function spin() {
 
     isSpinning = true;
     spinButton.disabled = true;
-
-    // เริ่มเสียงจากจุดท้าย (ข้ามเสียงข้างหน้า)
-    const spinSoundDuration = 2.0; // กำหนดความยาวเสียงหมุนเป็นวินาที (ปรับตามเสียงจริง)
-    spinSound.currentTime = Math.max(spinSound.duration - spinSoundDuration, 0);
     spinSound.play();
-
     canvas.style.transform = 'scale(1.2) rotate(0deg)';
     
     spinAngleStart = Math.random() * 10 + 10;
@@ -362,10 +357,6 @@ function stopRotateWheel() {
     const index = Math.floor((360 - (degrees % 360)) / arcdDegrees) % VIP_LEVELS[currentVIP].segments.length;
     selectedSegment = VIP_LEVELS[currentVIP].segments[index];
     setWheel(currentVIP);
-
-    // หยุดเสียงหมุนเมื่อหยุดหมุนวงล้อ
-    spinSound.pause();
-    spinSound.currentTime = 0; // รีเซ็ตเสียงเมื่อหมุนใหม่ครั้งถัดไป
 
     if (selectedSegment.type === 'text') {
         rewardText.textContent = `คุณได้รับ ${selectedSegment.content}`;
