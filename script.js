@@ -327,7 +327,12 @@ function spin() {
 
     isSpinning = true;
     spinButton.disabled = true;
+    
+    // เริ่มเล่นเสียงหมุนจากจุดที่ต้องการ (ตัวอย่าง: วินาทีที่ 1.5)
+    // spinSound.currentTime = 1.5; // ตัดเสียงจากจุดเริ่มต้น (ถ้าจำเป็น)
+    spinSound.currentTime = 0; // เริ่มจากจุดเริ่มต้น
     spinSound.play();
+    
     canvas.style.transform = 'scale(1.2) rotate(0deg)';
     
     spinAngleStart = Math.random() * 10 + 10;
@@ -367,6 +372,10 @@ function stopRotateWheel() {
     rewardModal.classList.add('animate__fadeInDown');
     rewardModal.style.display = "flex";
     winSound.play();
+
+    // หยุดเสียงหมุน
+    spinSound.pause();
+    spinSound.currentTime = 0; // รีเซ็ตเวลาเสียงหมุน
 
     // ทำเครื่องหมายว่าได้หมุนแล้วและบันทึกรางวัลที่เลือก
     VIP_LEVELS[currentVIP].hasSpun = true;
